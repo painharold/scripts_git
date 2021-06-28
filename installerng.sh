@@ -1,10 +1,13 @@
 #!/bin/bash
 
+
 sudo yum groupinstall -y "Development Tools"
 sudo yum install unzip
 
+
 sudo useradd builder
 sudo usermod -aG builder builder
+
 
 sudo su builder <<EOSU
 cd ~
