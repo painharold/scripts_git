@@ -1,0 +1,19 @@
+---
+
+- name: Install epel
+  yum: name=epel-release state=present
+  
+- name: Install nginx
+  yum: name=nginx state=present
+
+- name: copy conf nginx
+  copy: src=/home/dmitry/scripts_git/ansible/roles/nginx/files/nginx.conf dest=/etc/nginx
+
+- name: copy conf webpage
+  copy: src=/home/dmitry/scripts_git/ansible/roles/nginx/files/default.conf dest=/etc/nginx/conf.d
+
+- name: copy webpage
+  copy: src=/home/dmitry/scripts_git/ansible/roles/nginx/files/default dest=/var/www/html/
+   
+- name: restart nginx
+  service: name=nginx state=restarted
