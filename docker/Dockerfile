@@ -25,7 +25,7 @@ RUN yum localinstall -y ~/rpmbuild/RPMS/x86_64/nginx-1.19.3-1.el8.ngx.x86_64.rpm
 
 COPY web/nginx.conf /etc/nginx/nginx.conf
 COPY web/default.conf /etc/nginx/conf.d
-COPY web/default/* /var/www/html/
+COPY web/default/* /var/www/html/default/
 
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
